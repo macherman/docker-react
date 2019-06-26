@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t blindpew/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run blindpew/docker-react npm run test -- --coverage
